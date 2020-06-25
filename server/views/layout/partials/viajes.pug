@@ -1,0 +1,20 @@
+//- este parcial es reutilizable , debido a que se utiliza mas de una vez este bloque de codigo
+.row.proximos-viajes
+         each viaje in  viajes  
+            //-Iteraciones en PUG ya implicitas : https://pugjs.org/language/iteration.html
+            .col-md-6.col-lg-4.mb-4
+                .card
+                    img(src=`img/destinos_${viaje.imagen}.jpg`, class="img-fluid")
+                    .card-body
+                        h2 #{viaje.titulo}
+                        p 
+                            i.fas.fa-calendar-alt
+                            |   #{viaje.fecha_ida} - #{viaje.fecha_vuelta}
+
+                        p 
+                            i.fas.fa-dollr-sign
+                            |   #{viaje.precio}
+
+                        p #{viaje.descripcion.substr(0,100) } 
+
+                        a(href=`viajes/${viaje.id}` , class="btn btn-success btn-block") Mas información 

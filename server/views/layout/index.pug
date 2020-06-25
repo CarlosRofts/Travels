@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+//- ESTE FICHERO CONTENDRA EL HEADER Y EL FOOTER POR TANTO ES EL INDEX ABSOLUTE
+//- Atajo HTML5: ! + tab //- https://html-to-pug.com/
+
+html(lang="es")
+    head
+        
+        link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        script(src='https://kit.fontawesome.com/c2dca272eb.js', crossorigin='anonymous')
+        link(rel="stylesheet", href="/css/style.css")
+        
+        title #{titulo} | #{pagina}
+    body(class=clase)
+
+        include includes/header
+        //-Slider solo aparece cuando .home existe 
+        block slider 
+        //- BLOCK EXTERNO (SE CREA EN CADA VIEW Y CAMBIA CON AYUDA DEL ROUTING)
+        block contenido 
+        
+        include includes/footer
+
+
+        
+
