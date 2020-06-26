@@ -1,19 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,800,800italic,900,900italic);
-
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:regular,500,600,700);
 
 /*>────BASE  ────────────────────────────────────────────────────────────────────────────────── */
 :root {
-    /* font-family: 'Staatliches', cursive; */
-    /* font-family: 'Covered By Your Grace', cursive; */
-    font-family: 'Open Sans', sans-serif;
-
-    --main-color:rgb(53, 48, 59);
+    --main-color:hsl(195, 70%, 22%);
     --sec-color:rgb(54, 211, 203);
-    
-    
 }
-body {
-    font-family: 'Open Sans', sans-serif;
+ *, *::after , *::before {z-index: 100;}
+body ,html {
+    font-family: 'Lato';
+    letter-spacing: 2px;
+    overflow-x: hidden;
     
 }
 h1, h2, h3 {
@@ -36,20 +33,22 @@ h3 {
     border-color: var(--sec-color);
     padding: .8rem 0;
     text-transform: uppercase;
-    border-radius: .8rem;
+    border-radius: .3srem;
 }
-.btn-success:hover {
-    background-color: var(--sec-color);
+.btn-success:hover,.btn-success:active,.btn-success:focus {
+    background-color: var(--sec-color) !important;
     border-color: var(--sec-color);
+    box-shadow: none !important;
+    filter: brightness(150%);
 }
 
 .logo{
-    max-width: 200px;
+    max-width: 75px;
 }
 
 /*>──── HOME  ────────────────────────────────────────────────────────────────────────────────── */
 .slider {
-    background: url(../img//superior.jpg);
+    /* background: url(../img//superior.jpg); */
     min-height: 600px;
     height: 100vh;
     
@@ -65,33 +64,71 @@ h3 {
     color: white;
 }
 .slider em {
-    font-family: nunito Sans;
-    font-size: calc(4rem - 2vw);
+    font-family:"Dancing Script" ;
+    font-weight: 700;
+    font-size: calc(5em);
+    text-align: center;
     order: -1;
     line-height: .8;
-    color: rgba(255, 255, 255, 0.562);
+    color: rgb(255, 255, 255);
 }
 
-@media (min-width:768px) {
+
+/* Slide BG */
+video{
+    position: absolute;
+    min-width: 100%;
+    min-height: 10%;
+}
+
+@media (max-width:608px) {
     .slider em {
-        font-size: 5rem;
+        font-size: 15vw;
     }
 }
 .home {
     position: relative;
 }
 .home .navegacion {
-    background: transparent;
+    /* background: rgba(0, 96, 121, 0.918); */
+    background: linear-gradient( to left , rgba(14, 134, 170, 0.548),  rgba(15, 121, 112, 0.438));
+    /* linear-gradient(to right, black 0%, white 100%) */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
+
 .nav-link.active {
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
     border-bottom: 1px solid rgb(54, 211, 203);
-
 }
+/* Links FX */
+.nav-link{position: relative;}
+.nav-link:before, .nav-link:after{
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 1px;
+    content: '';
+    background: #FFF;
+    transition: all 0.3s;
+}
+.nav-link:before{
+    left: 0px;
+    top: 0px;
+}
+
+.nav-link:after{
+    right: 0px;
+    bottom: 0px;
+}
+.nav-link:hover:before,  .nav-link:hover:after{
+    opacity: 1;
+    width: 100%;
+}
+
+
 blockquote {
     font-weight: bold;
     line-height: 2;
@@ -107,10 +144,16 @@ header .nav a {
     font-size: 1.4rem;
     color: white;
 }
-footer .nav a,
-.copyright {
-    font-size: 1.6rem;
+footer .nav a,.copyright {
+    font-size: 1rem;
+    font-weight: 400;
     color: rgb(49, 49, 49);
+}
+@media (max-width:800px) {
+    header .nav a ,footer .nav a,.copyright {
+        font-size: 3vw;
+    }
+     
 }
 
 /*> ────Nosotros  ────────────────────────────────────────────────────────────────────────────────── */
@@ -126,24 +169,34 @@ footer .nav a,
 
 .descuento {
     height: 400px;
-    background-image: linear-gradient( rgba(24, 104, 170, 0.5) 0%,  rgba(0, 209, 192, 0.5) 100%),  url(../img/cupon.jpg);
+    background-image: linear-gradient( rgba(13, 64, 105, 0.842) 0%,  rgba(15, 121, 112, 0.89) 100%),  url(../img/cupon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-@media (min-width:768px) {
-    .descuento {
-        
+.fecha-desc:after{
+    content: "";
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1px;
+    width: 90%;
+    border: .7px solid white;
+}
+@media (min-width:768px) { /* desktop */
+    .descuento {        
         height: 400px;
         background-image:  linear-gradient(
             to right, 
-            rgba(24, 104, 170, 0.5) 0%, 
-            rgba(0, 185, 170, 0.678) 50%, 
+            rgba(24, 104, 170, 0.76) 0%, 
+            rgba(0, 185, 169, 0.767) 50%, 
             transparent 50%, 
             transparent 100%
         ), url(../img/cupon.jpg);
     }
     
 }
+
 .descuento .contenido {
     display: flex;
     flex-direction: column;

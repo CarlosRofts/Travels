@@ -6,21 +6,26 @@ extends ../layout/index
 //- CREAMOS EL BLOQUE SLIDER
 block slider
     .slider 
+        video(autoplay muted loop style="z-index:0")
+            source( src="/video/TomFisk.mp4")
         em Comienza el Viaje
-        h1.my-3 AHORA
+
+
+        
         
 //- BLOQUE EXTERNO
 block contenido
     main.container.mt-5
-        h2.text-center.mb-5 Sobre Nosotros
+        h2.text-center.my-5.pt-5 Sobre Nosotros
         .row.mb-6
             .col-md-6
-                p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis sit laboriosam, perferendis explicabo culpa architecto autem obcaecati dolorem magni, nemo laudantium natus praesentium sunt fugit ipsa voluptatum facilis consequatur voluptates?
-                p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis sit laboriosam, perferendis explicabo culpa architecto autem obcaecati dolorem magni, nemo laudantium natus praesentium sunt fugit ipsa voluptatum facilis consequatur voluptates? 
-            .col-md-6
-                img(src="/img/inicio_nosotros.jpg", class="img-fluid")
+                p.my-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis sit laboriosam, perferendis explicabo culpa architecto autem obcaecati dolorem magni, nemo laudantium natus praesentium sunt fugit ipsa voluptatum facilis consequatur voluptates?
+                p.mb-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis sit laboriosam, perferendis explicabo culpa architecto autem obcaecati dolorem magni, nemo laudantium natus praesentium sunt fugit ipsa voluptatum facilis consequatur voluptates? 
+            .col-md-6.my-auto
+                img(src="/img/inicio_nosotros.jpg", class="img img-fluid  rounded " )
+                
     .container            
-        h2.text-center.mb-5 Próximos Viajes
+        h2.text-center.my-5 Próximos Viajes
         include ../layout/partials/viajes
 
 
@@ -29,9 +34,9 @@ block contenido
             .row
                 .col-md-6
                     .contenido
-                        h3 5% de Descuento 
+                        h3.mb-3 5% de Descuento 
                         p.titulo Viaje a Canada
-                        p.fecha 20 de Marzo 2019 - 28 de Marzo de 2019
+                        p.fecha.my-4.fecha-desc 20 de Marzo 2019 - 28 de Marzo de 2019
                         p.precio $2,500$
 
     .container
